@@ -6,3 +6,4 @@ A brief game for learning, where tanks fight for dominance and control over a fl
 ##Lecture List
 
 *First Lecture
+*test
