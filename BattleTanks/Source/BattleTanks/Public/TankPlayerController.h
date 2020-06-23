@@ -24,6 +24,9 @@ class BATTLETANKS_API ATankPlayerController : public APlayerController
 		void AimTowardsCrosshair();
 		bool GetSightRayHitLocation(FVector& HitLocation) const;
 		bool HitSurface;
+		bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+		UPROPERTY(EditAnyWhere)
+		float LineTraceRange = 1000000;
 
 		bool GetLookDirection (FVector2D ScreenLocation, FVector& LookDirection) const;
 
