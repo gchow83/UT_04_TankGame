@@ -45,7 +45,7 @@ void ATankPlayerController::Tick(float DeltaTime)
     FVector HitLocation; //outparameter
     if(GetSightRayHitLocation(HitLocation))// Has "Side-Effect", is going to line trace
         {
-            UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *HitLocation.ToString());
+            GetControlledTank()->AimAt(HitLocation);
             //TODO tell the controlled tank to aim at this point
         }
 }
@@ -106,3 +106,6 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
     
 
 }
+
+
+

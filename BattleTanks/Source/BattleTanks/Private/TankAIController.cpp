@@ -3,7 +3,10 @@
 
 #include "TankAIController.h"
 #include "Engine/World.h"
+#include "Tank.h"
+#include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
+
 
 void ATankAIController::BeginPlay()
 {
@@ -22,6 +25,20 @@ void ATankAIController::BeginPlay()
     }
 
 }
+
+void ATankAIController::Tick(float DeltaSeconds)
+{
+    Super::Tick(DeltaSeconds);
+    
+   if(GetPlayerTank())
+   {
+    FVector PlayerOnePoistion = GetPlayerTank()->GetActorLocation();
+    GetControlledTank()->AimAt(PlayerOnePoistion);
+   }
+
+
+}
+
 
 ATank* ATankAIController::GetControlledTank() const
     {
