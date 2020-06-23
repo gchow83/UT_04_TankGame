@@ -25,6 +25,8 @@ class BATTLETANKS_API ATankPlayerController : public APlayerController
 		bool GetSightRayHitLocation(FVector& HitLocation) const;
 		bool HitSurface;
 
+		bool GetLookDirection (FVector2D ScreenLocation, FVector& LookDirection) const;
+
 		UPROPERTY(EditAnywhere)
 		float CrossHairXLocation = .5;
 		UPROPERTY(EditAnywhere)

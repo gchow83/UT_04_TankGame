@@ -1,7 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
+#include "GameFramework/PlayerController.h"
 #include "BattleTanks.h"
+
 
 //
     void ATankPlayerController::BeginPlay() 
@@ -59,8 +61,14 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) cons
     int32 ViewportSizeX, ViewportSizeY;
     GetViewportSize(ViewportSizeX, ViewportSizeY );
     auto ScreenLocation = FVector2D((CrossHairXLocation*ViewportSizeX), (CrossHairYLocation*ViewportSizeY));
-    UE_LOG(LogTemp, Warning, TEXT("Screen Location: %s"), *ScreenLocation.ToString());
+    
     //"De-Project" The screen position of the crosshair to a world direction
+    FVector LookDirection;
+    if(GetLookDirection(ScreenLocation, LookDirection))
+    {
+        UE_LOG(LogTemp, Warning, TEXT("World Direction: %s"), *LookDirection.ToString());
+    }
+
     //line trace along the look direction, see what we hit (up to Max range)
 
     OutHitLocation = FVector(1.0);
@@ -69,5 +77,10 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) cons
 
 }
 
-
+bool ATankPlayerController::GetLookDirection (FVector2D ScreenLocation, FVector& LookDirection)const
+{
+    //"De-Project" The screen position of the crosshair to a world direction
+    FVector WorldLocaiton; // to be discarded
+    return DeprojectScreenPositionToWorld(ScreenLocation.X, ScreenLocation.Y, WorldLocaiton, LookDirection);
+}
 
