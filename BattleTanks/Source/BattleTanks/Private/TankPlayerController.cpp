@@ -4,6 +4,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
 #include "Camera/PlayerCameraManager.h"
+#include "Tank.h"
 #include "BattleTanks.h"
 
 
@@ -45,7 +46,7 @@ void ATankPlayerController::Tick(float DeltaTime)
     FVector HitLocation; //outparameter
     if(GetSightRayHitLocation(HitLocation))// Has "Side-Effect", is going to line trace
         {
-            GetControlledTank()->AimAt(HitLocation);
+            GetControlledTank()->AimAt(HitLocation, 15);
             //TODO tell the controlled tank to aim at this point
         }
 }
