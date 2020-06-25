@@ -35,12 +35,17 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ATank::AimAt(FVector HitLocation, float LaunchSpeed)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 	
 }
 void ATank::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
 {
 		TankAimingComponent->SetBarrelReference(BarrelToSet);
+=======
+	auto OurTankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%S aiming at  %s"), *OurTankName, *HitLocation.ToString());
+>>>>>>> parent of 381e684... 171. BlueprintCallable()
 =======
 	auto OurTankName = GetName();
 	UE_LOG(LogTemp, Warning, TEXT("%S aiming at  %s"), *OurTankName, *HitLocation.ToString());
