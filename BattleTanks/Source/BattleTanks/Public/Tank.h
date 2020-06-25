@@ -14,12 +14,15 @@ class BATTLETANKS_API ATank : public APawn
 public:
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
+<<<<<<< HEAD
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
+=======
+>>>>>>> parent of 381e684... 171. BlueprintCallable()
 
 private:
 	// Sets default values for this pawn's properties
