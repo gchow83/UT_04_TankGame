@@ -33,7 +33,7 @@ void ATankAIController::Tick(float DeltaSeconds)
    if(GetPlayerTank())
    {
     FVector PlayerOnePoistion = GetPlayerTank()->GetActorLocation();
-    GetControlledTank()->AimAt(PlayerOnePoistion,0);
+    GetControlledTank()->AimAt(PlayerOnePoistion); 
    }
 
 
